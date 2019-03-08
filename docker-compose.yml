@@ -1,0 +1,13 @@
+version: '2'
+services:
+  redis:
+    restart: always
+    build: ./redis
+    container_name: redis 
+    container_name: redis_insance 
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+      - PORT=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
